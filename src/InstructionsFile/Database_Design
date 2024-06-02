@@ -1,0 +1,61 @@
+Database Design for "Travel the World" Application:
+Tables:
+
+Users:
+
+user_id (primary key): Unique identifier for each user.
+username: Username for login.
+password (hashed): Securely stored password hash.
+email: User's email address.
+first_name: User's first name.
+last_name: User's last name.
+user_type (e.g., 'user', 'admin'): Identifies user type (regular user or admin).
+Destinations:
+
+destination_id (primary key): Unique identifier for each destination.
+name: Name of the destination city or region.
+country: Country where the destination is located.
+description: Detailed description of the destination.
+image_url: URL for an image of the destination.
+Visa_Requirements:
+
+visa_id (primary key): Unique identifier for each visa requirement.
+destination_id (foreign key): References the destination_id from the Destinations table.
+visa_type (e.g., tourist, business): Type of visa required.
+requirements: Text description of visa application requirements.
+application_process: Detailed explanation of the visa application process.
+Interview_Tips:
+
+interview_id (primary key): Unique identifier for each interview tip.
+destination_id (foreign key): References the destination_id from the Destinations table.
+visa_type (e.g., tourist, business): Type of visa the tip applies to.
+tip_description: Specific advice for the visa interview.
+Bookings:
+
+booking_id (primary key): Unique identifier for each booking.
+user_id (foreign key): References the user_id from the Users table.
+destination_id (foreign key): References the destination_id from the Destinations table.
+booking_type (e.g., 'flight', 'bus', 'train'): Type of travel booked.
+travel_date: Date of travel.
+confirmation_code: Confirmation code for the booking (obtained from booking API).
+price: Price paid for the booking.
+Payments:
+
+payment_id (primary key): Unique identifier for each payment.
+booking_id (foreign key): References the booking_id from the Bookings table.
+amount: Payment amount.
+payment_method: Method used for payment (e.g., 'credit card', 'paypal').
+payment_date: Date of payment.
+transaction_id: Unique transaction ID from the payment gateway.
+Relationships:
+
+A User can have many Bookings. (One-to-Many)
+A Destination can have many Visa_Requirements and many Interview_Tips. (One-to-Many)
+A Booking is for one specific Destination. (One-to-One)
+A Booking is made by one specific User. (One-to-One)
+A Payment is linked to one specific Booking. (One-to-One)
+Additional Tables (Optional):
+
+Reviews: Users can leave reviews for destinations.
+Travel_Blogs: Users can share travel blog posts.
+Amenities: Define amenities offered by destinations (e.g., Wi-Fi, airport shuttle).

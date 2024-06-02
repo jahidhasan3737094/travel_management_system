@@ -37,4 +37,47 @@ git init
 git add .
 git commit -m "Initial commit"
 git remote add origin https://github.com/<your_username>/travel_management_system.git
-git push -u origin master
+git push -u origin main
+
+if you get error:
+https://github.com/jahidhasan3737094/travel_management_system.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/jahidhasan3737094/travel_management_system.git'
+hint: Updates were rejected because the remote contains work that you do not
+hint: have locally. This is usually caused by another repository pushing to
+hint: the same ref. If you want to integrate the remote changes, use
+hint: 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+then you have to do the following process:
+Fetch the Remote Changes:
+Fetch the changes from the remote repository.
+
+git fetch origin
+
+Merge with the --allow-unrelated-histories Flag:
+Merge the remote changes into your local branch, allowing unrelated histories.
+
+
+git merge origin/main --allow-unrelated-histories
+Resolve Any Conflicts:
+If there are any conflicts, resolve them manually. Git will show you the conflicting files. After resolving conflicts, add the resolved files to the staging area.
+
+may not need :git add <resolved files>
+Commit the Merge:
+After resolving conflicts, commit the merge.
+
+
+git commit -m "Merge remote-tracking branch 'origin/main' into main"
+Push Your Local Changes:
+Push your local changes to the remote repository.
+
+git push -u origin main
+Here's the complete sequence of commands:
+
+git fetch origin
+git merge origin/main --allow-unrelated-histories
+# Resolve any conflicts if they arise, then add the resolved files
+# git add <resolved files>
+git commit -m "Merge remote-tracking branch 'origin/main' into main"
+git push -u origin main

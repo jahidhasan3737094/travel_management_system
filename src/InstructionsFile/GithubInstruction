@@ -1,0 +1,40 @@
+Open Terminal/Command Prompt:
+Open your terminal or command prompt.
+
+Navigate to Your Project Directory:
+Change your current directory to your project directory "Travel_The_World" using the cd command.
+
+cd path/to/Travel_The_World
+Initialize a Git Repository:
+If your local project is not already a Git repository, initialize it with the following command:
+
+git init
+Add All Files to the Repository:
+Add all files in your project directory to the Git repository.
+
+
+git add .
+Commit the Files:
+Commit the added files with a message.
+
+
+git commit -m "Initial commit"
+Add Remote Repository:
+Add your GitHub repository as a remote. Replace <your_username> with your GitHub username.
+
+
+git remote add origin https://github.com/<your_username>/travel_management_system.git
+Push to GitHub:
+Push your committed changes to your GitHub repository.
+
+
+git push -u origin master
+Here is the entire sequence of commands:
+
+
+cd path/to/Travel_The_World
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/<your_username>/travel_management_system.git
+git push -u origin master

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/register")
+//@CrossOrigin(origins = "http://localhost:3000")//or Webconfig.java.both way will work
 public class RegistrationController {
 
     @Autowired

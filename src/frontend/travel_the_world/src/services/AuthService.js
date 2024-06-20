@@ -24,6 +24,11 @@ const register = (user) => {
     return axios.post(`${API_URL}/register/submit`, user);
 };
 
+const login = (username, password) => {
+    return axios.post(`${API_URL}/auth/login`, { email: username, password });
+};
+
 export default {
     register,
+    login
 };

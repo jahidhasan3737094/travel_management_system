@@ -3,15 +3,24 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items:center-top;
-    background-color: #333;
-    padding: 10px 20px;
+    align-items:center;
+    position: fixed; /* Make it stick/fixed */
+    top: 0;
+
+    /*background-color: #214;*/
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    /*padding: 5px 10px;*/
+
     color: white;
+    width: 100%; /* Full width */
+    transition: top 0.3s;
+
 }
 
 .navbar-brand {
     font-size: 24px;
     font-weight: bold;
+
 }
 
 .navbar-links {
@@ -21,6 +30,8 @@
 
 .navbar-links li {
     margin-left: 20px;
+    margin-right: 20px;
+    margin-top:5px
 }
 
 .navbar-links a {
@@ -35,12 +46,8 @@
 
 .navbar-brand {
     font-size: 24px;
-    font-weight: bold;
-}
-/* Navbar.css */
-
-.navbar-brand {
-    font-size: 24px;
+    padding:5px;
+    align:center;
     font-weight: bold;
 }
 

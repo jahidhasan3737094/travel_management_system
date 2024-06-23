@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import ProcessQuery from './ProcessQuery';
 import '../styles/requirement.css';
+import Slideshow from './Slideshow';
+import Navbar from './Navbar';
 
 const Requirement = () => {
+    const location = useLocation();
+    const { educationCountry } = location.state || {};
     const [educationLevel, setEducationLevel] = useState('');
     const [documents, setDocuments] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,16 +59,21 @@ const Requirement = () => {
     };
 
     const handleSubmit = () => {
-        // Open the modal
         setIsModalOpen(true);
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
+        setEducationLevel(''); // Clear education level selection
+        setDocuments({}); // Clear selected documents
     };
 
     return (
+
         <div className="requirement-container">
+            <Navbar />
+            <Slideshow />
+            <h2>Selected Education Country: {educationCountry}</h2>
             <label>Select Education Level:</label>
             <select value={educationLevel} onChange={handleLevelChange}>
                 <option value="">--Select Level--</option>
@@ -88,10 +98,15 @@ const Requirement = () => {
             </div>
 
             <button onClick={handleSubmit}>Start Process</button>
-            <ProcessQuery isOpen={isModalOpen} onClose={closeModal} />
+            <ProcessQuery
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                educationCountry={educationCountry}
+                educationLevel={educationLevel}
+                documents={documents}
+            />
         </div>
     );
 };
 
 export default Requirement;
-//

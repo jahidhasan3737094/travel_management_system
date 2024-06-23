@@ -1,0 +1,32 @@
+/* styles/admin/Home.css
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+
+  display: flex;
+  align-items: center;
+  height: 108vh;
+}
+
+*//* adminHome.css */
+
+  .admin-container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+  }
+
+  .admin-content {
+      flex-grow: 1;
+      padding: 20px;
+      margin-left: 300px; /* Adjust this value based on your navbar width */
+      background-color: #f9f9f9;
+  }
+
+  .intro-text {
+      margin-bottom: 20px;
+  }
+
+
+

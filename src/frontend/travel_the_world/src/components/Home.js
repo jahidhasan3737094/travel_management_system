@@ -1,5 +1,6 @@
 import React from 'react';
 import Slideshow from './Slideshow';
+import Navbar from './Navbar';
 import '../styles/Home.css';
 import '../styles/education.css';
 import '../styles/Sociallink.css';
@@ -11,6 +12,8 @@ const Home = () => {
     return (
         <div>
 
+             <Navbar/>
+             <Slideshow/>
             <div className="content">
 
                 <div className="intro-text">

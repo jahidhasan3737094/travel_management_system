@@ -1,4 +1,5 @@
 /* Register.css */
+/* styles/admin/Home.css
 
 body {
   font-family: Arial, sans-serif;
@@ -9,30 +10,44 @@ body {
   height: 108vh;
 }
 
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .register-container {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  max-width: 100px;
-  width: 100%;
+   width: 100%;
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 10px;
-  color: #333;
+     margin-bottom: 20px;
+     font-size: 24px;
+     color: #333;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
+  text-align: left;
 
 }
 
 label {
-  margin-bottom: 10px 10px 0px 10px;
-  color: #555;
+  display: block;
+     margin-bottom: 5px;
+     font-weight: bold;
+     color: #555;
 }
 
 input, select {
@@ -40,6 +55,15 @@ input, select {
   margin-bottom: 5px;
   border: 1px solid #ddd;
   border-radius: 4px;
+}
+.register-password input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
 }
 
 input[type="checkbox"] {

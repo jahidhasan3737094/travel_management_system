@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/processQuery.css';
 
-const ProcessQuery = ({ isOpen, onClose }) => {
+const ProcessQuery = ({ isOpen, onClose, educationCountry, educationLevel, documents }) => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        email: '',
+        userEmail: '',
         contactNumber: '',
-        country: '',
+        queryCountry: '',
+        educationCountry,
+        educationLevel,
+        documents: Object.keys(documents).filter((doc) => documents[doc]).join(', '),
         subject: '',
     });
     const [successMessage, setSuccessMessage] = useState('');
+
+    useEffect(() => {
+        setFormData({
+            ...formData,
+            educationCountry,
+            educationLevel,
+            documents: Object.keys(documents).filter((doc) => documents[doc]).join(', '),
+        });
+    }, [educationCountry, educationLevel, documents]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,37 +36,29 @@ const ProcessQuery = ({ isOpen, onClose }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/admin/user-queries/submit', {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
-                userEmail: formData.email,
-                contactNumber: formData.contactNumber,
-                country: formData.country,
-                subject: formData.subject,
-            });
+            const response = await axios.post('http://localhost:8080/admin/user-queries/submit', formData);
 
             if (response.status === 200) {
                 console.log('Form submitted successfully:', response.data);
-                // Show success message
                 setSuccessMessage('You will be contacted within 24 hours.');
-                // Optionally, reset the form fields
                 setFormData({
                     firstName: '',
                     lastName: '',
-                    email: '',
+                    userEmail: '',
                     contactNumber: '',
-                    country: '',
+                    queryCountry: '',
+                    educationCountry,
+                    educationLevel,
+                    documents: Object.keys(documents).filter((doc) => documents[doc]).join(', '),
                     subject: '',
                 });
-                // Hide success message after a delay
                 setTimeout(() => {
                     setSuccessMessage('');
-                    onClose();
-                }, 3000); // Adjust the delay as needed
+                    onClose(); // Close the modal after success
+                }, 3000);
             }
         } catch (error) {
             console.error('Error submitting form:', error);
-            // Handle form submission error (e.g., show an error message)
         }
     };
 
@@ -106,9 +110,9 @@ const ProcessQuery = ({ isOpen, onClose }) => {
                                 <div className="col-75">
                                     <input
                                         type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
+                                        id="userEmail"
+                                        name="userEmail"
+                                        value={formData.userEmail}
                                         onChange={handleChange}
                                         placeholder="Your email.."
                                         required
@@ -133,21 +137,18 @@ const ProcessQuery = ({ isOpen, onClose }) => {
                             </div>
                             <div className="row">
                                 <div className="col-25">
-                                    <label htmlFor="country">Country</label>
+                                    <label htmlFor="queryCountry">Query Country</label>
                                 </div>
                                 <div className="col-75">
-                                    <select
-                                        id="country"
-                                        name="country"
-                                        value={formData.country}
+                                    <input
+                                        type="text"
+                                        id="queryCountry"
+                                        name="queryCountry"
+                                        value={formData.queryCountry}
                                         onChange={handleChange}
+                                        placeholder="Country related to your query.."
                                         required
-                                    >
-                                        <option value="">Select your country..</option>
-                                        <option value="australia">Australia</option>
-                                        <option value="canada">Canada</option>
-                                        <option value="usa">USA</option>
-                                    </select>
+                                    />
                                 </div>
                             </div>
                             <div className="row">
@@ -186,4 +187,3 @@ const ProcessQuery = ({ isOpen, onClose }) => {
 };
 
 export default ProcessQuery;
-//

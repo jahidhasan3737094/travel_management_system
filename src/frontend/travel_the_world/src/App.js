@@ -14,12 +14,14 @@ import './styles/ServiceTravelDropdown.css';
 import './styles/checkout.css';
 import ProcessQuery from './components/ProcessQuery';
 
+import AdminNavbar from './components/admin/AdminNavbar';
+
+import AdminHome from './components/admin/AdminHome';
 const App = () => {
     return (
         <Router>
             <div>
-                <Navbar />
-                <Slideshow/>
+
                 <div className="content">
                     <Routes>
                         <Route path="/" element={<Home />} />
@@ -30,7 +32,17 @@ const App = () => {
                          <Route path="/requirement" element={<Requirement />} /> {/* Add Requirement route */}
                          <Route path="/checkout" element={<Checkout/>}/>
                          <Route path="/process" element={<ProcessQuery/>}/>
+
+
+                            {/* Admin routes */}
+                                             <Route path="/admin" element={<AdminHome />}>
+
+                                               
+
+                                             </Route>
+
                     </Routes>
+
                 </div>
             </div>
         </Router>

@@ -1,6 +1,7 @@
 .requirement-container {
-    margin-top: 50px;
+    margin-top: 40px;
     text-align: center;
+    padding:5px;
 }
 
 select {

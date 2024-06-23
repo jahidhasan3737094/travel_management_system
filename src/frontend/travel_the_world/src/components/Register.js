@@ -88,7 +88,7 @@
 import React, { useState } from 'react';
 import AuthService from '../services/AuthService';
 import '../styles/register.css'; // Ensure the path is correct
-
+import Navbar from './Navbar';
 const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -123,6 +123,8 @@ const Register = () => {
     };
 
     return (
+        <div>
+        <Navbar/>
         <div className="content">
             <h2>Register</h2>
             <form onSubmit={handleRegister}>
@@ -130,7 +132,7 @@ const Register = () => {
                     <label>Username:</label>
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
                 </div>
-                <div>
+                <div className="register-password">
                     <label>Password:</label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
@@ -171,7 +173,10 @@ const Register = () => {
             </form>
             {message && <p>{message}</p>}
         </div>
+        </div>
+
     );
 };
 
 export default Register;
+//

@@ -21,9 +21,8 @@ public class UserQuery {
     private String lastName;
     private String userEmail;
     private String contactNumber;
-    //private String educationCountry; // Added field for education country
-   // private String queryCountry; // Added field for query country
-    private String country;
+    private String educationCountry; // Added field for education country will come from educatiion country
+    private String queryCountry; // Added field for query country and will come from startprocees form.
     private String educationLevel; // Field for education level
     private String documents; // Field for documents
     private String subject;

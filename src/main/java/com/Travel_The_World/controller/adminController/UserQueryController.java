@@ -20,6 +20,7 @@ public class UserQueryController {
 
     @PostMapping("/submit")
     public ResponseEntity<UserQuery> createUserQuery(@RequestBody UserQuery userQuery) {
+        System.out.println("Received User Email: " + userQuery.getUserEmail()); // Log received email
         UserQuery savedUserQuery = userQueryService.saveUserQuery(userQuery);
         return ResponseEntity.ok(savedUserQuery);
     }
@@ -33,6 +34,27 @@ public class UserQueryController {
     public ResponseEntity<UserQuery> getUserQueryById(@PathVariable Integer id) {
         Optional<UserQuery> userQuery = userQueryService.getUserQueryById(id);
         return userQuery.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserQuery> updateUserQuery(@PathVariable Integer id, @RequestBody UserQuery userQueryDetails) {
+        Optional<UserQuery> userQueryOptional = userQueryService.getUserQueryById(id);
+        if (userQueryOptional.isPresent()) {
+            UserQuery userQuery = userQueryOptional.get();
+            userQuery.setFirstName(userQueryDetails.getFirstName());
+            userQuery.setLastName(userQueryDetails.getLastName());
+            userQuery.setUserEmail(userQueryDetails.getUserEmail());
+            userQuery.setContactNumber(userQueryDetails.getContactNumber());
+            userQuery.setQueryCountry(userQueryDetails.getQueryCountry());
+            userQuery.setEducationLevel(userQueryDetails.getEducationLevel());
+            userQuery.setDocuments(userQueryDetails.getDocuments());
+            userQuery.setSubject(userQueryDetails.getSubject());
+
+            UserQuery updatedUserQuery = userQueryService.saveUserQuery(userQuery);
+            return ResponseEntity.ok(updatedUserQuery);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")

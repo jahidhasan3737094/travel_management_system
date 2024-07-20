@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/tourism.css';
+import Navbar from './Navbar';
 
 const Tourism = () => {
     const [filter, setFilter] = useState('');
+    const navigate = useNavigate();
 
     const handleFilterChange = (event) => {
         setFilter(event.target.value.toUpperCase());
     };
 
+    const handleCountryClick = (country) => {
+        navigate('/tourism-requirement', { state: { travelCountry: country } });
+    };
+
     return (
         <div className="tourism-container">
+            <Navbar />
             <h2>Tourism</h2>
             <input
                 type="text"
@@ -27,11 +35,10 @@ const Tourism = () => {
                         style={{
                             display: country.name.toUpperCase().indexOf(filter) > -1 ? 'block' : 'none',
                         }}
+                        onClick={() => handleCountryClick(country.name)}
                     >
-                        <a href={`/${country.name.toLowerCase()}`} target="_blank" rel="noopener noreferrer">
-                            <img src={`${process.env.PUBLIC_URL}/images/${country.image}`} alt={country.name} className="country-image" />
-                            <div className="country-name">{country.name}</div>
-                        </a>
+                        <img src={`${process.env.PUBLIC_URL}/images/${country.image}`} alt={country.name} className="country-image" />
+                        <div className="country-name">{country.name}</div>
                     </div>
                 ))}
             </div>

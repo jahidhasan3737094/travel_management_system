@@ -1,23 +1,44 @@
-.navbar {
+/* adminNavbar.css */
+
+.admin-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed; /* Make it stick/fixed */
     top: 0;
-    background-color: #214;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
     color: white;
     width: 100%; /* Full width */
     transition: top 0.3s;
     z-index: 1000; /* Ensure it is above other content */
 }
 
-.navbar-brand {
+.admin-navbar-brand {
     font-size: 24px;
     font-weight: bold;
     padding: 10px 20px;
 }
 
-.tab {
+.admin-navbar-links {
+    list-style: none;
+    display: flex;
+}
+
+.admin-navbar-links li {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.admin-navbar-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.admin-navbar-links a:hover {
+    text-decoration: underline;
+}
+
+.admin-tab {
     float: left;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -30,7 +51,7 @@
     overflow: auto; /* Enable scrolling if needed */
 }
 
-.tab button {
+.admin-tab button {
     display: block;
     background-color: inherit;
     color: black;
@@ -44,15 +65,15 @@
     font-size: 17px;
 }
 
-.tab button:hover {
+.admin-tab button:hover {
     background-color: #ddd;
 }
 
-.tab button.active {
+.admin-tab button.active {
     background-color: #ccc;
 }
 
-.tabcontent {
+.admin-tabcontent {
     margin-left: 20%;
     padding: 0px 12px;
     border: 1px solid #ccc;
@@ -60,4 +81,12 @@
     border-left: none;
     height: calc(100vh - 50px); /* Full height minus navbar height */
     overflow: auto; /* Enable scrolling if needed */
+}
+
+.admin-username {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+    color:green;
+    text-align: center;
 }

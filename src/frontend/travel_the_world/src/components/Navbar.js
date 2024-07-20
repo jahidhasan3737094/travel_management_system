@@ -10,7 +10,7 @@ const Navbar = () => {
 
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
-            const navbar = document.getElementById("navbar");
+            const navbar = document.getElementById("user-navbar");
 
             if (prevScrollpos > currentScrollPos) {
                 navbar.style.top = "0";
@@ -28,9 +28,9 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav id="navbar" className="navbar">
-            <div className="navbar-brand">Travel The World</div>
-            <ul className="navbar-links">
+        <nav id="user-navbar" className="user-navbar">
+            <div className="user-navbar-brand">Travel The World</div>
+            <ul className="user-navbar-links">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/login">Login</Link></li>
                 <li><Link to="/register">Register</Link></li>
@@ -46,7 +46,6 @@ const Navbar = () => {
                 <li className="nav-item">
                     <Link className="nav-link" to="/contact">Contact</Link>
                 </li>
-
             </ul>
         </nav>
     );

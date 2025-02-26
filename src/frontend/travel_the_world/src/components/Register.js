@@ -1,94 +1,10 @@
-//import React, { useState } from 'react';
-//import AuthService from '../services/AuthService';
-//import '../styles/register.css';
-//
-//const Register = () => {
-//    const [username, setUsername] = useState('');
-//    const [password, setPassword] = useState('');
-//    const [userEmail, setUserEmail] = useState('');
-//    const [userFirstName, setUserFirstName] = useState('');
-//    const [userLastName, setUserLastName] = useState('');
-//    const [phoneNumber, setPhoneNumber] = useState('');
-//    const [userType, setUserType] = useState('user'); // Default to 'user'
-//    const [confirmRegistration, setConfirmRegistration] = useState(false);
-//
-//    const handleRegister = async (e) => {
-//        e.preventDefault();
-//        try {
-//            const user = {
-//                username,
-//                password,
-//                userEmail,
-//                userFirstName,
-//                userLastName,
-//                phoneNumber,
-//                userType,
-//                confirmRegistration
-//            };
-//            const response = await AuthService.register(user);
-//            console.log(response.data);
-//        } catch (error) {
-//            console.error('Registration failed', error);
-//        }
-//    };
-//
-//    return (
-//        <div className="content">
-//            <h2>Register</h2>
-//            <form onSubmit={handleRegister}>
-//                <div>
-//                    <label>Username:</label>
-//                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>Password:</label>
-//                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>Email:</label>
-//                    <input type="email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>First Name:</label>
-//                    <input type="text" value={userFirstName} onChange={(e) => setUserFirstName(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>Last Name:</label>
-//                    <input type="text" value={userLastName} onChange={(e) => setUserLastName(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>Phone Number:</label>
-//                    <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
-//                </div>
-//                <div>
-//                    <label>User Type:</label>
-//                    <select value={userType} onChange={(e) => setUserType(e.target.value)}>
-//                        <option value="user">User</option>
-//                        <option value="admin">Admin</option>
-//                    </select>
-//                </div>
-//                <div>
-//                    <label>
-//                        <input
-//                            type="checkbox"
-//                            checked={confirmRegistration}
-//                            onChange={(e) => setConfirmRegistration(e.target.checked)}
-//                        />
-//                        Confirm Registration
-//                    </label>
-//                </div>
-//                <button type="submit">Register</button>
-//            </form>
-//        </div>
-//    );
-//};
-//
-//export default Register;
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/AuthService';
-import '../styles/register.css'; // Ensure the path is correct
+import '../styles/register.css';
 import Navbar from './Navbar';
+import Slideshow from './Slideshow';
+
 const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -96,12 +12,20 @@ const Register = () => {
     const [userFirstName, setUserFirstName] = useState('');
     const [userLastName, setUserLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [userType, setUserType] = useState('user'); // Default to 'user'
     const [confirmRegistration, setConfirmRegistration] = useState(false);
     const [message, setMessage] = useState('');
+    const [error, setError] = useState(''); // State for error messages
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
+
+        // Basic validation
+        if (password.length < 8) {
+            setError('Password must be at least 8 characters long.');
+            return;
+        }
+
         try {
             const user = {
                 username,
@@ -110,73 +34,117 @@ const Register = () => {
                 userFirstName,
                 userLastName,
                 phoneNumber,
-                userType,
+                userType: 'user',
                 confirmRegistration
             };
+
             const response = await AuthService.register(user);
-            setMessage('Registration successful! Please check your email to confirm your registration.');
-            console.log(response.data);
-        } catch (error) {
-            console.error('Registration failed', error);
-            setMessage('Registration failed. Please try again.');
+            setMessage('Registration successful! Redirecting to login...');
+            setError('');
+            setTimeout(() => {
+                navigate('/');
+            }, 2000);
+
+            // Clear form fields
+            setUsername('');
+            setPassword('');
+            setUserEmail('');
+            setUserFirstName('');
+            setUserLastName('');
+            setPhoneNumber('');
+            setConfirmRegistration(false);
+        } catch (err) {
+            console.error('Registration failed', err);
+            setError('Registration failed. Please try again.');
+            setMessage('');
         }
     };
 
     return (
         <div>
-        <Navbar/>
-        <div className="content">
-            <h2>Register</h2>
-            <form onSubmit={handleRegister}>
-                <div>
-                    <label>Username:</label>
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
-                </div>
-                <div className="register-password">
-                    <label>Password:</label>
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                </div>
-                <div>
-                    <label>Email:</label>
-                    <input type="email" value={userEmail} onChange={(e) => setUserEmail(e.target.value)} required />
-                </div>
-                <div>
-                    <label>First Name:</label>
-                    <input type="text" value={userFirstName} onChange={(e) => setUserFirstName(e.target.value)} required />
-                </div>
-                <div>
-                    <label>Last Name:</label>
-                    <input type="text" value={userLastName} onChange={(e) => setUserLastName(e.target.value)} required />
-                </div>
-                <div>
-                    <label>Phone Number:</label>
-                    <input type="tel" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
-                </div>
-                <div>
-                    <label>User Type:</label>
-                    <select value={userType} onChange={(e) => setUserType(e.target.value)}>
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <div>
-                    <label>
+            <Navbar />
+            <Slideshow />
+            <div className="register-container">
+                <h2 className="register-title">Register</h2>
+                <form className="register-form" onSubmit={handleRegister}>
+                    <div className="register-form-group">
+                        <label className="register-label">Username:</label>
                         <input
-                            type="checkbox"
-                            checked={confirmRegistration}
-                            onChange={(e) => setConfirmRegistration(e.target.checked)}
+                            className="register-input"
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
                         />
-                        Confirm Registration
-                    </label>
-                </div>
-                <button type="submit">Register</button>
-            </form>
-            {message && <p>{message}</p>}
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">Password:</label>
+                        <input
+                            className="register-input register-password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">Email:</label>
+                        <input
+                            className="register-input"
+                            type="email"
+                            value={userEmail}
+                            onChange={(e) => setUserEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">First Name:</label>
+                        <input
+                            className="register-input"
+                            type="text"
+                            value={userFirstName}
+                            onChange={(e) => setUserFirstName(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">Last Name:</label>
+                        <input
+                            className="register-input"
+                            type="text"
+                            value={userLastName}
+                            onChange={(e) => setUserLastName(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">Phone Number:</label>
+                        <input
+                            className="register-input"
+                            type="tel"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="register-form-group">
+                        <label className="register-label">
+                            <input
+                                className="register-checkbox"
+                                type="checkbox"
+                                checked={confirmRegistration}
+                                onChange={(e) => setConfirmRegistration(e.target.checked)}
+                            />
+                            Confirm Registration
+                        </label>
+                    </div>
+                    <button className="register-button" type="submit">Register</button>
+                </form>
+                {message && <p className="register-success-message">{message}</p>}
+                {error && <p className="register-error-message">{error}</p>}
+            </div>
         </div>
-        </div>
-
     );
 };
 
 export default Register;
-//

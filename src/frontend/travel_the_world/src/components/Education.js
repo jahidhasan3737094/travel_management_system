@@ -52,11 +52,12 @@ const Education = () => {
 const countries = [
     { name: 'Germany', image: 'germany.jpg' },
     { name: 'Sweden', image: 'sweden.png' },
-    { name: 'UK', image: 'uk.png' },
+    { name: 'uk',image:'uk.png'},
     { name: 'Canada', image: 'canada.jpg' },
     { name: 'Italy', image: 'italy.png' },
     { name: 'France', image: 'france.jpg' },
     { name: 'USA', image: 'usa.jpg' },
+    { name: 'Finland', image: 'finland.jpg' },
 ];
 
 export default Education;

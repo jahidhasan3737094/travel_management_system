@@ -1,6 +1,7 @@
 package com.Travel_The_World.service.admin_service;
 
-import com.Travel_The_World.model.UserQuery;
+import com.Travel_The_World.model.TouristUserQuery;
+import com.Travel_The_World.model.UserEducationQuery;
 import com.Travel_The_World.repository.UserQueryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,19 @@ public class UserQueryService {
     @Autowired
     private UserQueryRepository userQueryRepository;
 
-    public UserQuery saveUserQuery(UserQuery userQuery) {
+    public List<UserEducationQuery> getUserQueriesByEmail(String email) {
+        return userQueryRepository.findByUserEmail(email);
+    }
+
+    public UserEducationQuery saveUserQuery(UserEducationQuery userQuery) {
         return userQueryRepository.save(userQuery);
     }
 
-    public List<UserQuery> getAllUserQueries() {
+    public List<UserEducationQuery> getAllUserQueries() {
         return userQueryRepository.findAll();
     }
 
-    public Optional<UserQuery> getUserQueryById(Integer id) {
+    public Optional<UserEducationQuery> getUserQueryById(Integer id) {
         return userQueryRepository.findById(id);
     }
 

@@ -1,0 +1,132 @@
+/* AllUserTable.css */
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.intro-text p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+#myInput {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+#myTable thead {
+
+    color: black;
+}
+
+#myTable th, #myTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#myTable th {
+    width: auto;
+}
+
+#myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+#myTable .header {
+    background-color: #f2f2f2;
+}
+
+#myTable .header th {
+    font-weight: bold;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 2px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:focus {
+    outline: none;
+}
+
+button[onlClick*="openUpdateModel"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button[onlClick*="allUserHandleDelete"] {
+    background-color: #f44336;
+    color: white;
+}
+
+.model {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.model-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

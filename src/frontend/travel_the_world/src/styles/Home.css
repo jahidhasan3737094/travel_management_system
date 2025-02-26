@@ -21,9 +21,19 @@ body {
 .intro-text {
     margin-bottom: 50px;
     font-style: italic;
+     /* ✅ Keeps text visible */
+
 
 }
+.intro-home-text {
+    margin-bottom: 50px;
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.5); /* ✅ Keeps text visible */
+    color:white;
+    padding:10px;
+    border-radius:20px;
 
+}
 .button-container {
     display: flex;
     justify-content: center;
@@ -40,6 +50,7 @@ body {
 .button-column img {
     width: 100%;
     height: auto;
+    border-radius:20px;
 }
 
 .button-column .btn {
@@ -53,8 +64,9 @@ body {
     padding: 12px 24px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
+
 }
 
 .button-column .btn:hover {
@@ -62,7 +74,7 @@ body {
 }
 
 
-.intro-text ul {
+.intro-home-text ul {
     list-style-type: none;
     padding: 0;
 }
@@ -73,7 +85,9 @@ body {
     font-style: italic;
     font-weight: bold;
 }
-
+.intro-home-text h2{
+    color:white;
+}
 .footer {
     position: fixed;
     left: 0;

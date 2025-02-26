@@ -1,0 +1,45 @@
+
+
+*//* adminHome.css */
+
+  .user-container {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+  }
+
+ .user-content {
+     flex-grow: 1;
+     padding: 40px;
+     margin-left: 190px; /* Default margin for large screens */
+     background-color: #f9f9f9;
+     transition: margin-left 0.3s ease; /* Smooth transition when resizing */
+ }
+
+ /* ✅ Adjust margin for tablets and medium-sized screens */
+ @media (max-width: 1024px) {
+     .user-content {
+         margin-left: 200px;
+     }
+ }
+
+ /* ✅ Adjust margin for smaller screens like tablets and small laptops */
+ @media (max-width: 768px) {
+     .user-content {
+         margin-left: 150px;
+         padding: 30px;
+     }
+ }
+
+ /* ✅ Adjust margin for mobile screens */
+ @media (max-width: 480px) {
+     .user-content {
+         margin-left: 0; /* No margin for full-screen mobile view */
+         padding: 20px;
+     }
+ }
+
+
+  .user-profile-intro-text {
+      margin-bottom: 20px;
+  }

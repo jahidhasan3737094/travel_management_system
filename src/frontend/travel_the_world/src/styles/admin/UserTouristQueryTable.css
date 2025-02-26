@@ -1,0 +1,124 @@
+/* UserTouristQueryTable.css */
+
+/* General Table Styling */
+#tourist-myTable {
+    border-collapse: collapse;
+    width: 80%; /* ✅ Increased width for better layout */
+    margin: 20px auto; /* ✅ Centers the table */
+    border: 1px solid #ddd;
+    font-size: 14px; /* ✅ Improved readability */
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* ✅ Rounded corners */
+    overflow: hidden;
+}
+
+/* Table Headers & Cells */
+#tourist-myTable th,
+#tourist-myTable td {
+    text-align: left;
+    padding: 10px; /* ✅ Increased padding for better spacing */
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Table Header */
+#tourist-myTable thead {
+    background-color: #004085; /* ✅ Darker header background */
+    color: white;
+}
+
+#tourist-myTable th {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Table Row Styling */
+#tourist-myTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#tourist-myTable tbody tr:hover {
+    background-color: #e6e6e6;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+/* Search Input */
+#mytouristInput {
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#mytouristInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+
+/* Modal Styling */
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.modal .close:hover {
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #tourist-myTable {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    #tourist-myTable th,
+    #tourist-myTable td {
+        padding: 8px;
+    }
+
+    #mytouristInput {
+        font-size: 12px;
+        padding: 8px;
+        width: 80%;
+    }
+
+
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}

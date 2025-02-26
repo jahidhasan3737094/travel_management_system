@@ -1,0 +1,106 @@
+/* General container styling */
+
+
+input#searchInput {
+    width: 50%;
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input#searchInput:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Table styling */
+table#userQueryTable {
+    width: 70%;
+    margin: 0 auto 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+}
+
+table#userQueryTable thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+table#userQueryTable th, table#userQueryTable td {
+    padding: 5px 20px;
+    text-align: right;
+    border: 1px solid #ddd;
+}
+
+table#userQueryTable th {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+table#userQueryTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table#userQueryTable tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Button styling */
+button {
+    padding: 8px 10px;
+    margin: 2px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+
+button:first-of-type:hover {
+    background-color: #218838;
+}
+
+
+
+button:last-of-type:hover {
+    background-color: #c82333;
+}
+
+/* Modal styling */
+
+
+
+
+.modal-content .close:hover {
+    color: #000;
+}
+
+/* Responsive styling */
+@media (max-width: 568px) {
+    table#userQueryTable th, table#userQueryTable td {
+        font-size: 12px;
+    }
+
+    input#searchInput {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+}

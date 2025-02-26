@@ -1,0 +1,56 @@
+.tourism-documents-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+}
+
+.tourism-documents-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.tourism-documents-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.tourism-overlay-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: red;
+}
+
+.tourism-documents-list label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tourism-checkbox {
+    flex-shrink: 0;
+    margin-left: 160px;
+}
+
+.tourism-document-name {
+    font-size: 13px;
+    color: #333;
+    white-space: nowrap;
+    width: 40px;
+}

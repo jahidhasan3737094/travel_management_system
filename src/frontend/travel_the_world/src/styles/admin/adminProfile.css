@@ -1,0 +1,59 @@
+/* adminProfile.css */
+.admin-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+
+
+.admin-content h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.admin-content p {
+    color: #666;
+}
+
+.admin-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 0px 10px;
+}
+
+.admin-navbar .admin-username {
+
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.admin-navbar button {
+    background: none;
+    border: none;
+
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.admin-navbar button:hover {
+    text-decoration: underline;
+}
+
+.logout {
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.logout:hover {
+    background-color: darkred;
+}

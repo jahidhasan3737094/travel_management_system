@@ -19,8 +19,7 @@ body {
 
   .admin-content {
       flex-grow: 1;
-      padding: 20px;
-      margin-left: 300px; /* Adjust this value based on your navbar width */
+      margin-left: 270px; /* Adjust this value based on your navbar width */
       background-color: #f9f9f9;
   }
 

@@ -57,9 +57,9 @@ const UserQueryTable = () => {
                 placeholder="Search for names or countries.."
                 title="Type in a name"
             />
-            <table id="myTable">
+            <table id="education_myTable">
                 <thead>
-                    <tr className="header">
+                    <tr className="education-header">
                         <th style={{ width: '10%' }}>First Name</th>
                         <th style={{ width: '10%' }}>Last Name</th>
                         <th style={{ width: '15%' }}>Email</th>

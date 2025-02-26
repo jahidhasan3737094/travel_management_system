@@ -1,8 +1,9 @@
 package com.Travel_The_World.controller.adminController;
 
+import com.Travel_The_World.model.UserEducationQuery;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.Travel_The_World.model.UserQuery;
+import com.Travel_The_World.model.UserEducationQuery;
 import com.Travel_The_World.service.admin_service.UserQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,28 +20,28 @@ public class UserQueryController {
     private UserQueryService userQueryService;
 
     @PostMapping("/submit")
-    public ResponseEntity<UserQuery> createUserQuery(@RequestBody UserQuery userQuery) {
+    public ResponseEntity<UserEducationQuery> createUserQuery(@RequestBody UserEducationQuery userQuery) {
         System.out.println("Received User Email: " + userQuery.getUserEmail()); // Log received email
-        UserQuery savedUserQuery = userQueryService.saveUserQuery(userQuery);
+        UserEducationQuery savedUserQuery = userQueryService.saveUserQuery(userQuery);
         return ResponseEntity.ok(savedUserQuery);
     }
 
     @GetMapping
-    public List<UserQuery> getAllUserQueries() {
+    public List<UserEducationQuery> getAllUserQueries() {
         return userQueryService.getAllUserQueries();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserQuery> getUserQueryById(@PathVariable Integer id) {
-        Optional<UserQuery> userQuery = userQueryService.getUserQueryById(id);
+    public ResponseEntity<UserEducationQuery> getUserQueryById(@PathVariable Integer id) {
+        Optional<UserEducationQuery> userQuery = userQueryService.getUserQueryById(id);
         return userQuery.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserQuery> updateUserQuery(@PathVariable Integer id, @RequestBody UserQuery userQueryDetails) {
-        Optional<UserQuery> userQueryOptional = userQueryService.getUserQueryById(id);
+    public ResponseEntity<UserEducationQuery> updateUserQuery(@PathVariable Integer id, @RequestBody UserEducationQuery userQueryDetails) {
+        Optional<UserEducationQuery> userQueryOptional = userQueryService.getUserQueryById(id);
         if (userQueryOptional.isPresent()) {
-            UserQuery userQuery = userQueryOptional.get();
+            UserEducationQuery userQuery = userQueryOptional.get();
             userQuery.setFirstName(userQueryDetails.getFirstName());
             userQuery.setLastName(userQueryDetails.getLastName());
             userQuery.setUserEmail(userQueryDetails.getUserEmail());
@@ -50,7 +51,7 @@ public class UserQueryController {
             userQuery.setDocuments(userQueryDetails.getDocuments());
             userQuery.setSubject(userQueryDetails.getSubject());
 
-            UserQuery updatedUserQuery = userQueryService.saveUserQuery(userQuery);
+            UserEducationQuery updatedUserQuery = userQueryService.saveUserQuery(userQuery);
             return ResponseEntity.ok(updatedUserQuery);
         } else {
             return ResponseEntity.notFound().build();

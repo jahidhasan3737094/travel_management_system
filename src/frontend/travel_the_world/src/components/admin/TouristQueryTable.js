@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UpdateQueryForm from './UpdateQueryForm'; // Assuming this is your update form component
-import '../../styles/admin/UserQueryTable.css';
+import '../../styles/admin/UserTouristQueryTable.css';
 
 const TouristQueryTable = () => {
     const [userQueries, setUserQueries] = useState([]);
@@ -51,18 +51,18 @@ const TouristQueryTable = () => {
         <div>
             <input
                 type="text"
-                id="myInput"
+                id="mytouristInput"
                 onChange={e => setSearchTerm(e.target.value)}
                 placeholder="Search for names or countries.."
                 title="Type in a name"
             />
-            <table id="myTable">
+            <table id="tourist-myTable">
                 <thead>
-                    <tr className="header">
+                    <tr className="tourist-header">
                         <th style={{ width: '10%' }}>First Name</th>
                         <th style={{ width: '10%' }}>Last Name</th>
-                        <th style={{ width: '15%' }}>Email</th>
-                        <th style={{ width: '15%' }}>Contact</th>
+                        <th style={{ width: '25%' }}>Email</th>
+                        <th style={{ width: '10%' }}>Contact</th>
                         <th style={{ width: '10%' }}>Tourist Country</th>
                         <th style={{ width: '10%' }}>Level</th>
                         <th style={{ width: '10%' }}>Query Country</th>

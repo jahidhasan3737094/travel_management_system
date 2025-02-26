@@ -1,0 +1,72 @@
+/* General container styling */
+
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Table styling */
+.query-table {
+    width: 80%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding:20px;
+}
+
+.query-table thead {
+    background-color: #004085;
+    color: #ffffff;
+
+}
+
+.query-table th, .query-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.query-table th {
+    font-weight: bold;
+}
+
+.query-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.query-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Button styling */
+.update-button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #218838;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .query-table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+}

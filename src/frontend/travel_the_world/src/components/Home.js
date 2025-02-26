@@ -12,13 +12,14 @@ const Home = () => {
     return (
         <div>
 
+              <Slideshow />
              <Navbar/>
-             <Slideshow/>
+
             <div className="content">
 
-                <div className="intro-text">
-                    <h2>Travel the World: Your All-in-One Travel Companion Plan, Book, Explore!</h2>
-                    <p>Travel the World is your one-stop shop for all your travel needs. Explore breathtaking destinations, find step-by-step visa and interview guidance, and book flights, buses, and trains - all in one place.</p>
+                <div className="intro-home-text">
+                    <h2>Explore the World: Your All-in-One Travel Companion Plan, Book, Explore!</h2>
+                    <p>Explore the World is your one-stop shop for all your travel needs. Explore breathtaking destinations, find step-by-step visa and interview guidance, and book flights, buses, and trains - all in one place.</p>
                     <h3>Features:</h3>
                     <ul>
                         <li><strong>Destination Guides:</strong> Discover hidden gems and must-see attractions.</li>
@@ -27,7 +28,7 @@ const Home = () => {
                         <li><strong>Personalized Profile:</strong> Manage your travel plans and track past adventures.</li>
                         <li><strong>24/7 Support:</strong> Get help from our travel experts whenever you need it.</li>
                     </ul>
-                    <p>Start your dream vacation today!</p>
+                    <p>Start your dream today!</p>
                 </div>
                 <div className="button-container">
                        <div className="button-column">
@@ -46,8 +47,8 @@ const Home = () => {
             </div>
             <div className="footer">
                 <div className="links">
-                    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Our Office Location</a>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="fa fa-facebook"></a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=95+Waring+Pl,+Yonkers,+NY+10703" target="_blank" rel="noopener noreferrer">Our Office Location</a>
+                    <a href="https://www.facebook.com/profile.php?id=61563220906458" target="_blank" rel="noopener noreferrer" className="fa fa-facebook"></a>
                     <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="fa fa-instagram"></a>
                     <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="fa fa-twitter"></a>
                     <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="fa fa-linkedin"></a>

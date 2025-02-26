@@ -1,0 +1,127 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Review Form Container with Overlay Border */
+.review-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Overlay Border Effect */
+.review-container::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #ff416c, #007bff, #00c6ff);
+    z-index: -1;
+    filter: blur(6px);
+}
+
+/* Form Title */
+h2 {
+    color: #333;
+    font-size: 24px;
+    padding:30px;
+    margin-bottom: 20px;
+}
+
+/* Message Styling */
+.message {
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 0;
+    color: green;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Labels */
+label {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+}
+
+/* Input Fields */
+input,
+textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Textarea */
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* File Input Styling */
+input[type="file"] {
+    border: none;
+    font-size: 14px;
+    padding: 5px;
+}
+
+/* Submit Button */
+
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Error Message */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .review-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

@@ -57,3 +57,27 @@
     background: #125688;
     color: white;
 }
+
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* ✅ Keeps text visible */
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.overlay-text h2, .overlay-text p {
+    margin: 10px 0;
+}
+
+.overlay-text h2 {
+    color: white !important; /* ✅ Ensures <h2> is always white */
+    font-weight: bold;
+}
